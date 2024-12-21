@@ -30,7 +30,7 @@
 
 ;;TODO: Disable word wrap for prog-mode i.e. source codes & text mode
 
-;;Package Setup
+;;Package setup
 (require 'package)
 (setq package-archives '(("melpa" . "https://melpa.org/packages/")
                          ("gnu" . "https://elpa.gnu.org/packages/")
@@ -42,6 +42,9 @@
 
 (require 'use-package)
 (setq use-package-always-ensure t)
+
+(use-package eterm-256color
+  :hook (term-mode . eterm-256color-mode))
 
 ;;install and configure lsp-mode (language server protocol) for my fave languages i.e. Java
 (use-package lsp-mode
@@ -90,7 +93,7 @@
 
 ;;Quick code commenting
 (use-package evil-nerd-commenter
-  :bind ("M-/" . evilnc-comment-or-uncomment-lines))
+  :bind ("M-/" . evilnc-comment-or-uncomment-lines)) 
 
 (scroll-bar-mode -1) ; Disable Scroll bar
 (tool-bar-mode -1) ; Disable toobar
@@ -107,7 +110,7 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
-   '(pdf-tools evil-nerd-commenter lsp-treemacs treemacs which-key flycheck lsp-ui company lsp-mode))
+   '(eterm-256color pdf-tools evil-nerd-commenter lsp-treemacs treemacs which-key flycheck lsp-ui company lsp-mode))
  '(warning-suppress-log-types '((use-package)))
  '(warning-suppress-types '((use-package))))
 (custom-set-faces
